@@ -1,5 +1,7 @@
 package br.com.elton.lists.challenge1;
 
+import br.com.elton.models.Employee;
+
 public class EmployeeDoublyLinkedList {
 
     private EmployeeNode head;

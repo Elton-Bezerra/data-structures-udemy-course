@@ -1,5 +1,7 @@
 package br.com.elton.stacks.challenge;
 
+import java.util.LinkedList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -13,8 +15,44 @@ public class Main {
         System.out.println(checkForPalindrome("hello"));
         // should return true
         System.out.println(checkForPalindrome("Don't nod"));
+        
+        System.out.println("==================================");
+        
+        // should return true
+        System.out.println(checkForPalindromeAnswer("abccba"));
+        // should return true
+        System.out.println(checkForPalindromeAnswer("Was it a car or a cat I saw?"));
+        // should return true
+        System.out.println(checkForPalindromeAnswer("I did, did I?"));
+        // should return false
+        System.out.println(checkForPalindromeAnswer("hello"));
+        // should return true
+        System.out.println(checkForPalindromeAnswer("Don't nod"));
     }
-
+    
+    public static boolean checkForPalindromeAnswer(String string) {
+    	LinkedList<Character> stack = new LinkedList<>();
+    	StringBuilder stringNoPonctuation = new StringBuilder(string.length());
+    	String lowerCase = string.toLowerCase();
+    	
+    	for (int i = 0; i < lowerCase.length(); i++) {
+    		char c = lowerCase.charAt(i);
+    		
+    		if(c >= 'a' && c <= 'z') {
+    			stringNoPonctuation.append(c);
+    			stack.push(c);
+    		}
+    	}
+    	
+    	StringBuilder reversedString = new StringBuilder(stack.size());
+    	while(!stack.isEmpty()) {
+    		reversedString.append(stack.pop());
+    	}
+    	
+    	return stringNoPonctuation.toString().equals(reversedString.toString());
+    	
+    }
+    
     public static boolean checkForPalindrome(String string) {
     	/*
     	 * Find the length of the string say len. Now, find the mid as mid = len / 2.
@@ -24,7 +62,7 @@ public class Main {
 			If there is a mismatch then the string is not a palindrome. If all the elements match then the string is a palindrome.
     	 */
     	
-    	string = tratarString(string);
+    	string = string.toLowerCase().replaceAll("\\W+", "");
 
     	LinkedStack stack = new LinkedStack();
     	
@@ -54,8 +92,4 @@ public class Main {
     	}
         return true;
     }
-
-	private static String tratarString(String s) {		
-		return s.replaceAll("\\W+", "").toLowerCase();
-	}
 }

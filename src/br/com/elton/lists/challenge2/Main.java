@@ -1,4 +1,4 @@
-package br.com.elton.challenge2;
+package br.com.elton.lists.challenge2;
 
 public class Main {
 

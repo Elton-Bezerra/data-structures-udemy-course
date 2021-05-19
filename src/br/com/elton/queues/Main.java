@@ -11,32 +11,22 @@ public class Main {
         Employee mikeWilson = new Employee("Mike", "Wilson", 3245);
         Employee billEnd = new Employee("Bill", "End", 78);
         
-        ArrayQueue queue = new ArrayQueue(10);
+        ArrayQueue queue = new ArrayQueue(5);
+        
         
         queue.add(janeJones);
         queue.add(johnDoe);
         queue.add(marySmith);
         queue.add(mikeWilson);
+        queue.remove();
+        queue.remove();
+        queue.remove();
+        
         queue.add(billEnd);
-        
-        queue.printQueue();
-        
-        System.out.println();
-        System.out.println(queue.peek());
-        queue.remove();
-        
-        System.out.println(queue.peek());
-        
-        System.out.println();
-        
-        queue.printQueue();
-        
-        queue.remove();
-        queue.remove();
-        queue.remove();
-        queue.remove();
-        System.out.println("removendo tudo");
+        queue.add(janeJones);
+        queue.add(marySmith);
+        queue.add(mikeWilson);
         queue.add(billEnd);
-        queue.printQueue();
+
 	}
 }

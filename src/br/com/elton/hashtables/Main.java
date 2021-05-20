@@ -23,5 +23,11 @@ public class Main {
         System.out.println("Retrieve value for key 'Jones': " + ht.get("Jones"));
 
         System.out.println("Retrieve value for key 'Smith': " + ht.get("Smith"));
+        
+        ht.remove("Wilson");
+        ht.remove("Jones");
+        
+        System.out.println("Retrieve value for key 'Smith': " + ht.get("Smith"));
+
 	}
 }

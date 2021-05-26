@@ -7,11 +7,18 @@ public class Main {
 		System.out.println(binarySearch(array, 15, 0, array.length));
 		System.out.println(binarySearch(array, 27, 0, array.length));
 		System.out.println(binarySearch(array, 37, 0, array.length));
+		System.out.println(binarySearch(array, 38, 0, array.length));
+
 		System.out.println(iterativeBinarySearch(array, 35));
 	}
 	
 	public static int binarySearch(int[] array, int value, int startIndex, int endIndex) {
 		int middle = (startIndex + endIndex) / 2;
+		
+		if(startIndex >= endIndex) {
+			return -1;
+		}
+		
 		
 		if(array[middle] == value) {
 			return middle;
